@@ -17,6 +17,14 @@ return [
         'pass'     => 'baz',
         'database' => 'test',
     ],
+    'mongodb'  => [
+        'type'     => 'mongodb',
+        'host'     => 'foo',
+        'port'     => '27017',
+        'user'     => 'bar',
+        'pass'     => 'baz',
+        'database' => 'test',
+    ],
     'unsupported' => [
         'type' => 'doesnt exist',
     ],
