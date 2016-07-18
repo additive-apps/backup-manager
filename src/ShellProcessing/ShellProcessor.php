@@ -32,7 +32,10 @@ class ShellProcessor {
         $this->process->setTimeout(null);
         $this->process->run();
         if ( ! $this->process->isSuccessful()) {
-            throw new ShellProcessFailed($this->process->getErrorOutput());
+            // HACK for 'Using a password on the command line interface can be insecure.'
+            if (trim($this->process->getErrorOutput()) !== 'mysqldump: [Warning] Using a password on the command line interface can be insecure.') {
+                throw new ShellProcessFailed($this->process->getErrorOutput());
+            }
         }
     }
 }
